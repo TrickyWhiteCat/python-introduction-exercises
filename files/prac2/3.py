@@ -1,21 +1,17 @@
-import math
-
-def prime(n):
-    if n < 2:
-        return False
-        
-    for i in range(2, int(math.sqrt(n)) + 1):
-        if n % i == 0:
-            return False
-            
-    return True         
-    
 def print_prime(n):
-    prime_arr = [i for i in range(n) if prime(i)]
-    print(*prime_arr)
-    
+    a = [None for i in range(n)]
+    for i in range(2, n):
+        if a[i] is None:
+            a[i] = True
+            print(i, end = ' ')
+            for j in range(i * i, n, i):
+                a[j] = False
+              
 def main():
-    print_prime(30)
-    print_prime(80)
-    
-main()
+    import time
+    start = time.time()
+    print_prime(1000000)
+    print('Execution time: {}'.format(time.time() - start))
+
+if __name__ == '__main__':
+    main()

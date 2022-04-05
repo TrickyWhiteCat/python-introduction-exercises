@@ -17,7 +17,7 @@ def pascal(i):
     if i != n:
         pascal(i+1)
 
-n = int(input('n = '))
-pascal(1)
+n = 20
+pascal(100)
 
 # here oke ??
