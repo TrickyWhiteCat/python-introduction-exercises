@@ -28,7 +28,7 @@ def fibo_compare(x: int, y: int):
         start = time.time()
         res = fibo_loop(i)
         et = time.time() - start
-        print('{:<5}{:<10}{:<16}'.format(i, res, str(et) + ' s'))
+        print('{:<5}{:<10}{:<16f}'.format(i, res, et))
 
     print('Execution time for Fibonacci function using recursion with n from {} to {}: '.format(x, y))
     print('{:<5}{:<10}{:<16}'.format('n', 'Result', 'Time'))
@@ -36,7 +36,7 @@ def fibo_compare(x: int, y: int):
         start = time.time()
         res = fibo(i)
         et = time.time() - start
-        print('{:<5}{:<10}{:<16}'.format(i, res, str(et) + ' s'))
+        print('{:<5}{:<10}{:<5.16f}'.format(i, res, et))
 
     
 def main():

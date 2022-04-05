@@ -1,3 +1,3 @@
-from math import gcd
 def GCD(a, b):
-    return gcd(a, b) # Deo ai lai lam the nay ((=
+    if a % b == 0: return b
+    return GCD(b, a % b)
