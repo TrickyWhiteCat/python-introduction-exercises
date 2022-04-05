@@ -1,6 +1,6 @@
 import math
 
-def prime(n):
+def is_prime(n:int) -> bool:
     if n <= 1:
         return False 
 
@@ -10,7 +10,10 @@ def prime(n):
 
     return True
 
-n = int(input())
+def main():
+    n = int(input())
+    print('prime' if is_prime(n) else 'not prime')
 
-print('prime' if prime(n) else 'not prime')
+if __name__ == '__main__':
+    main()
 

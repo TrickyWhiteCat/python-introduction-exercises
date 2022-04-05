@@ -1,6 +1,6 @@
 # Exercise 1
 # Write a program to display the number of days in a month, given the month and the year
-def leap(year):
+def leap(year:int) -> bool:
     if ((year % 4) and (not year % 100)) or (year % 400):
         return True
     return False
