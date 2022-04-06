@@ -19,8 +19,7 @@ def get_triangle(num_lines: int, triangle = []) -> list:
         for elem in range (1, line + 1):
             elems_in_line.append(get_element(line, elem))
             ''' There is no need to store precalculated values in another dictionary before <get_element()> is terminated 
-            because the function <get_element()> is an object and<cache> is a default parameter of it, which makes <cache> 
-            to be a <get_element()>'s attribute. Since the function is still there (so we can call it again), so do its attributes.'''
+            because default values of a function are evaluated once the function is defined, not each time the function is called.'''
         triangle.append(elems_in_line)
     return triangle
 
