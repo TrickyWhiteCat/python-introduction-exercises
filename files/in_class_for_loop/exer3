@@ -1,0 +1,4 @@
+n = int(input())
+for i in range(0, n + 1):
+    s = s + [i * s[-1]] if i else [1]
+print(s[-1])
