@@ -1,3 +1,4 @@
+# An alternate: https://github.com/TrickyWhiteCat/python-introduction-exercises/blob/main/files/prac2/2.py
 def display_pascal_triangle(n):
     def pline(i):
         def ele(i, j):
@@ -20,7 +21,3 @@ def display_pascal_triangle(n):
     
     pascal(1)
 
-
-# n = int(input('n = '))
-
-# display_pascal_triangle(n)
