@@ -1,11 +1,7 @@
-def digit_sum(a):
-    s = str(a)
-    res = 0
-    for digit in s:
-        res += int(digit)
-    return res
-
 def digit_sum_greater(a, b):
-    if digit_sum(a) > digit_sum(b):
+    a_sum = sum(int(i) for i in str(a))
+    b_sum = sum(int(i) for i in str(b))
+    if a_sum > b_sum:
         return 'YES'
-    return 'NO'
+    else:
+        return 'NO'
