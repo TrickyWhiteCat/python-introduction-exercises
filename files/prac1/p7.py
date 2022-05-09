@@ -11,7 +11,7 @@ def newton_sqrt(n: int, precision: float) -> float:
 
 def main():
     n = int(input())
-    print(newton_sqrt(n, 0.0000001))
+    print('{:.4f}'.format(newton_sqrt(n, 0.0000001)))
 
 if __name__ == '__main__':
     main()
