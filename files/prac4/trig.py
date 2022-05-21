@@ -1,71 +1,57 @@
-import math
+def _abs(x):
+    return (x>0)*x + (x<0)*(-x)
 
-def exp(x):
-    res = 0
-    
-    x_up = 1
-    fact = 1
-    
-    cnt = 1
-    
-    while abs(res - math.e**x) >= 1e-9:
-        #print('%f \n%i / %i' % (res, x_up, fact))
-        res += x_up / fact
-        x_up *= x
-        fact *= cnt
-        cnt += 1
-        
+def _factorial(x):
+    res = 1
+    for i in range(1, x+1):
+        res *= i
     return res
-        
-        
-def sin(x):
-    while x >= 2 * math.pi:
-        x -= 2 * math.pi
-    
-    
-    res = 0
-    
-    x_up = x
-    fact = 1
-    
-    cnt = 1
-    current_sign = 1
-    
-    while abs(res - math.sin(x)) >= 1e-9:
-#         print('in sin', end = ' ')
-        res += current_sign * x_up / fact
-        
-        x_up *= x * x
-        fact *= (cnt + 1) * (cnt + 2)
-        
-        cnt += 2
-        current_sign *= -1
-    return res
-    
 
-def cos(x):
-    while x >= 2 * math.pi:
-        x -= 2 * math.pi
+def exp(x, err = 10**-10):
     res = 0
-    
-    x_up = 1
-    fact = 1
-    
-    cnt = 0
-    current_sign = 1
-    
-    while abs(res - math.cos(x)) >= 1e-9:
-#         print('in cos', end = ' ')
-        res += current_sign * x_up / fact
-        #print(res)
-        x_up *= x * x
-        fact *= (cnt + 1) * (cnt + 2)
-        
-        cnt += 2
-        current_sign *= -1
+    prev = 0
+    index = 0
+    diff = 2**30 # Just a big number
+    while (True):
+        if diff < err: break
+        prev = res
+        res += x**index/_factorial(index)
+        index += 1
+        diff = _abs(res - prev)
     return res
-    
-if __name__ == '__main__':
-    print(exp(3))
-    print(sin(20))
-    print(cos(26))
+
+def sin(x, err = 10**-10):
+    res = 0
+    prev = 0
+    index = 0
+    diff = 2**30 # Just a big number
+    while (True):
+        if diff < err: break
+        prev = res
+        res += x**(2*index+1)*(-1)**index/_factorial(2*index+1)
+        index += 1
+        diff = _abs(res - prev)
+    return res
+
+def cos(x, err = 10**-10):
+    res = 0
+    prev = 0
+    index = 0
+    diff = 2**30 # Just a big number
+    while (True):
+        if diff < err: break
+        prev = res
+        res += x**(2*index)*(-1)**index/_factorial(2*index)
+        index += 1
+        diff = _abs(res - prev)
+    return res
+
+
+def main():
+    import time
+    start = time.time()
+    print(cos(2, 10**-10))
+    print(time.time() - start)
+
+if __name__ == "__main__":
+    main()
