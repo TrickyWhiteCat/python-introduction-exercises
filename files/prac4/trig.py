@@ -11,7 +11,7 @@ def exp(x, err = 10**-10):
     res = 0
     prev = 0
     index = 0
-    diff = 2**30 # Just a big number
+    diff = err + 1
     while (True):
         if diff < err: break
         prev = res
@@ -24,7 +24,7 @@ def sin(x, err = 10**-10):
     res = 0
     prev = 0
     index = 0
-    diff = 2**30 # Just a big number
+    diff = err + 1
     while (True):
         if diff < err: break
         prev = res
@@ -37,7 +37,7 @@ def cos(x, err = 10**-10):
     res = 0
     prev = 0
     index = 0
-    diff = 2**30 # Just a big number
+    diff = err + 1
     while (True):
         if diff < err: break
         prev = res
