@@ -16,4 +16,4 @@ print(''.join([char if char not in lowercases else \
 
 # An alternative
 a = lambda distance, n: ''.join([(i if i == ' ' else chr(ord('a') + (ord(i) - ord('a') + distance) % 26)) for i in n.lower()]) 
-a(int(input()), input())
+print(a(int(input()), input()))
