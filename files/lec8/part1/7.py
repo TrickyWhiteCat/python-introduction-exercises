@@ -12,6 +12,4 @@ class Matrix:
         return (self._num_rows, self._num_cols)
 
     def __str__(self) -> str:
-        for row in self._rows:
-            temp = '\t'.join(str(elem) for elem in row)
         return '\n'.join('\t'.join(str(elem) for elem in row) for row in self._rows)
