@@ -10,9 +10,15 @@ class string_utilities:
             if character in open:
                 open_stack.append(character)
             if character in close:
-                if open[close.index(character)] != open_stack.pop():
+                try:
+                    if open[close.index(character)] != open_stack.pop():
+                        return False
+                except IndexError:
                     return False
         return not open_stack
 
     def reverse_words(self, words):
         return ' '.join(words.split()[::-1])
+
+    
+    
