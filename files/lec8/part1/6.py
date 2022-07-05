@@ -1,39 +1,18 @@
-class string_utilities(object):
-    def is_valid_parenthese(self, s):
-        def is_pair(par_1, par_2):
-            if (par_1 == '(' and par_2 == ')') or \
-               (par_1 == '[' and par_2 == ']') or \
-               (par_1 == '{' and par_2 == '}'):
-                return True
-            return False
-        
-        check_valid = ''
-
-        if len(s) == 0:
-            return True
-        
-        if len(s) % 2 == 1:
-            return False
-
-        for c in s:
-            if check_valid == '':
-                check_valid = check_valid + c
-                #print('"%s"' % check_valid)
-            elif is_pair(check_valid[-1], c):
-                check_valid = check_valid[:-1]
-                #print('"%s"' % check_valid)
-            else:
-                check_valid = check_valid + c
-                
-        return True if check_valid == '' else False
+class string_utilities():
+    def __init__(self):
+        pass
     
-    def reverse_words(self, s):
-        words = s.split()
-        words.reverse()
-        return ' '.join(words)
+    def is_valid_parenthese(self, s):
+        open = ('{', '[', '(')
+        close = ('}', ']', ')')
+        open_stack = []
+        for character in s:
+            if character in open:
+                open_stack.append(character)
+            if character in close:
+                if open[close.index(character)] != open_stack.pop():
+                    return False
+        return not open_stack
 
-'''
-print(string_utilities().is_valid_parenthese('{[(])]}'))
-print(string_utilities().is_valid_parenthese('{[()(({}))]}'))
-print(string_utilities().reverse_words('Bach khoa Ha Noi'))
-'''
+    def reverse_words(self, words):
+        return ' '.join(words.split()[::-1])
