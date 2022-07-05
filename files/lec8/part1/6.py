@@ -1,4 +1,4 @@
-class string_utilities():
+class string_utilities:
     def __init__(self):
         pass
     
